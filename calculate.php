@@ -14,6 +14,7 @@
 	<header data-role="header"><center>คำนวณราคาซื้ออสังหาริมทรัพย์<br>บ้าน คอนโด อาคารพาณิชย์ เพื่อปล่อยเช่า<br>Property calculate cost</center></header>
 <?php
 require_once('validate.php');
+$base_url = "http://www.isanbook.com/android/property/index.html";
 if($_POST['offer']!=''){
 	if($_POST['income']!=''){
 		if($_POST['expenses']!=''){
@@ -30,7 +31,7 @@ if($_POST['offer']!=''){
 					if($expenses_y>=$income_y){
 						echo "<u><b>ผลการคำนวณ (Result)</b></u> : <br>";
 						echo "ข้อเสนอแนะ (Suggestion) : <br><span style='color:red;'>ราคาแพง ไม่สมควรซื้อ ...That is expensive!!</span><br>";
-						echo "<a href='index.html' data-role='button'>Back to home</a>";
+						echo "<a href='".$base_url."' data-role='button'>Back to home</a>";
 					}
 					else{
 						if($_POST['offer']>$purchase){
@@ -45,32 +46,32 @@ if($_POST['offer']!=''){
 						echo "<u><b>ผลการคำนวณ (Result)</b></u> : <br>ราคาที่ควรซื้อ (Suitable Cost)  : <span style='color:blue;'>".number_format( $purchase , 2 )." baht</span><br>";
 						echo "ช่วงราคาที่เหมาะสม (Range of suitable Cost) : <span style='color:orange;'>".$offset_minus." - ".$offset_plus." baht</span><br>";
 						echo "ข้อเสนอแนะ (Suggestion) : <br>".$str."<br>";
-						echo "<a href='index.html' data-role='button'>Back to home</a>";
+						echo "<a href='".$base_url."' data-role='button'>Back to home</a>";
 					}
 				}
 				else{
 					echo "<span style='color:red;'>กำไรที่ต้องการ หรือ อัตราดอกเบี้ยธนาคาร ต้องเป็นตัวเลขหรือทศนิยมเท่านั้น!!</span><br>";
-					echo "<a href='index.html' data-role='button'>Back to home</a>";
+					echo "<a href='".$base_url."' data-role='button'>Back to home</a>";
 				}
 			}
 			else{
 				echo "<span style='color:red;'>กำไรที่ต้องการ หรือ อัตราดอกเบี้ยธนาคาร ต้องไม่เป็นค่าว่าง!!</span><br>";
-				echo "<a href='index.html' data-role='button'>Back to home</a>";
+				echo "<a href='".$base_url."' data-role='button'>Back to home</a>";
 			}
 		}
 		else{
 			echo "<span style='color:red;'>รายจ่าย/เดือน ต้องไม่เป็นค่าว่าง!!</span><br>";
-			echo "<a href='index.html' data-role='button'>Back to home</a>";
+			echo "<a href='".$base_url."' data-role='button'>Back to home</a>";
 		}
 	}
 	else{
 		echo "<span style='color:red;'>รายรับ/เดือน ต้องไม่เป็นค่าว่าง!!</span><br>";
-		echo "<a href='index.html' data-role='button'>Back to home</a>";
+		echo "<a href='".$base_url."' data-role='button'>Back to home</a>";
 	}
 }
 else{
 	echo "<span style='color:red;'>ราคาขาย ต้องไม่เป็นค่าว่าง!!</span><br>";
-	echo "<a href='index.html' data-role='button'>Back to home</a>";
+	echo "<a href='".$base_url."' data-role='button'>Back to home</a>";
 }
 ?>
 </section><!-- /page -->
